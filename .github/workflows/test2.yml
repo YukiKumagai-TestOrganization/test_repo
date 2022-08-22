@@ -1,0 +1,13 @@
+name: test2 workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  main:
+    runs-on: self-hosted
+    steps:
+      - name: env
+        run : |
+          sleep 5m
+          env
