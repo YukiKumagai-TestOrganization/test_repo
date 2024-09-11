@@ -2,6 +2,9 @@ name: test2 workflow
 
 on:
   workflow_dispatch:
+    inputs:
+      hoge:
+        type: string
 
 jobs:
   main:
@@ -9,6 +12,9 @@ jobs:
     environment: dev
     steps:
       - name: env
-        run : |
+        env:
+          HOGE: ${{ github.event.inputs.hoge }}
+        run: |
+          echo ${HOGE}
           sleep 5m
           env
